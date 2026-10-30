@@ -712,7 +712,8 @@ class MainWindow:
     def show_error(self, message):
         self.bottom_revealer.set_reveal_child(True)
         self.bottom_stack.set_visible_child_name("error")
-        self.bottom_info_label.set_markup("<span color='red'>{}</span>".format(message))
+        self.bottom_info_label.set_markup(
+            "<span color='red'>{}</span>".format(GLib.markup_escape_text(message, -1)))
 
 
     def update_font_cache(self):
